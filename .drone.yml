@@ -3,7 +3,7 @@ pipeline:
     group: docker-image
     image: plugins/docker
     secrets: [ docker_username, docker_password ]
-    repo: kontena/pharos-kubelet-proxy
+    repo: kontena/pharos-kubelet-proxy-amd64
     dockerfile: Dockerfile
     auto_tag: true
     when:
