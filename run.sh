@@ -7,11 +7,9 @@ nl=$'\n'
 servers=()
 IFS=',' read -ra ADDR <<< "$KUBE_MASTERS"
 for i in "${ADDR[@]}"; do
-  #echo "i:$i"
   servers+=("server $i:6443;$nl")
 done
 
-#servers=$(echo -p ${servers[*]})
 
 cat >/etc/nginx/nginx.conf <<EOF
 error_log stderr notice;
