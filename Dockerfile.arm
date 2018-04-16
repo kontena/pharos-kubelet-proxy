@@ -1,6 +1,6 @@
-FROM arm64v8/nginx:1.13.12-alpine
+FROM multiarch/ubuntu-debootstrap:arm64-xenial
 
-RUN apk update && apk add bash
+RUN apt-get update && apt-get install -y nginx bash
 
 ADD run.sh /
 
