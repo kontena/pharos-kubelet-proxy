@@ -39,6 +39,13 @@ stream {
 
 EOF
 
+if [[ $(uname -m) == 'aarch64' ]]; then
+  # For some reason on multiarch alpine the pid location does not exist after apk add
+  mkdir -p /run/nginx/
+  # stream module is also dynamic, need to load it explicitly
+  echo 'load_module /usr/lib/nginx/modules/ngx_stream_module.so;' | cat - /etc/nginx/nginx.conf > /tmp/nginx.conf && mv /tmp/nginx.conf /etc/nginx/nginx.conf
+fi
+
 
 # Start nginx
 exec nginx -g 'daemon off;'
