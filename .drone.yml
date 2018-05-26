@@ -2,7 +2,7 @@ pipeline:
   docker:
     image: plugins/docker
     secrets: [ docker_username, docker_password ]
-    repo: kontena/pharos-kubelet-proxy-amd64
+    repo: quay.io/kontena/pharos-kubelet-proxy-amd64
     dockerfile: Dockerfile
     auto_tag: true
     when:
@@ -17,7 +17,7 @@ pipeline:
   docker-arm:
     image: plugins/docker
     secrets: [ docker_username, docker_password ]
-    repo: kontena/pharos-kubelet-proxy-arm64
+    repo: quay.io/kontena/pharos-kubelet-proxy-arm64
     dockerfile: Dockerfile.arm
     auto_tag: true
     when:
