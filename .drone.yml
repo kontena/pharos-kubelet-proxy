@@ -1,5 +1,6 @@
 pipeline:
   docker:
+    registry: quay.io
     image: plugins/docker
     secrets: [ docker_username, docker_password ]
     repo: quay.io/kontena/pharos-kubelet-proxy-amd64
@@ -15,6 +16,7 @@ pipeline:
       event: tag
 
   docker-arm:
+    registry: quay.io
     image: plugins/docker
     secrets: [ docker_username, docker_password ]
     repo: quay.io/kontena/pharos-kubelet-proxy-arm64
